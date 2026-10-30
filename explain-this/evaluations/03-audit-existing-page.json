@@ -1,0 +1,19 @@
+{
+  "skills": ["explain-this"],
+  "query": "Voici une page que j'ai déjà publiée. Qu'est-ce qui n'est toujours pas clair ?",
+  "files": ["any previously published page of the series"],
+  "expected_behavior": [
+    "Runs scripts/audit-page.py on the page rather than counting by eye or writing a new counter",
+    "Reports findings and STOPS - makes no edit and republishes nothing before the user chooses",
+    "Gives a verdict per diagram against step 6's routing table and the eleven rules in references/components.md",
+    "Lists terms used without a gloss, ranked by how much they block comprehension, starting with the subject's own name if it is undefined",
+    "Flags any claim it cannot trace to a file it opened in this session, rather than re-asserting it",
+    "Flags anything framed as a to-do list, since the reader is still learning",
+    "Does not invent new findings to pad the report - an audit that finds little says so"
+  ],
+  "known_failure_modes": [
+    "Fixing the page immediately instead of reporting first",
+    "Writing an ad-hoc counting script that treats .tldr as empty and reports false empty sections",
+    "Reviewing only the prose and leaving the diagrams unexamined"
+  ]
+}

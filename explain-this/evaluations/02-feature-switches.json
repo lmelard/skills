@@ -1,0 +1,21 @@
+{
+  "skills": ["explain-this"],
+  "repo": "doctolib/doctolib",
+  "query": "Fais-moi une page sur les feature switches : comment ça marche et comment on s'en sert.",
+  "expected_behavior": [
+    "Counts the switches with a command rather than estimating, and prints the number it got",
+    "Opens app/models/application_preference.rb and config/feature_switches.yml before writing",
+    "Finds the direction the house has chosen - that cohorts are the recommended form - from a source other than the switch code itself, for example the migrate-feature-switch-to-cohort skill",
+    "Says on the page which form is legacy and which is current, and does not present the majority form as the normal one by virtue of being the majority",
+    "Distinguishes the two percentage mechanisms (per-call random versus deterministic hash) and says which switch names select which",
+    "Any illustration that crosses the browser and the monolith is a grouped diagram with one subgraph per system, not a single-column .chain",
+    "Every colour used in a diagram legend appears in that diagram",
+    "scripts/audit-page.py exits 0 on the published file",
+    "The reply states what was verified and what was not"
+  ],
+  "known_failure_modes": [
+    "Reporting the cohort-less switches in config/feature_switches.yml as the legacy backlog - the legacy lives in two other files",
+    "Describing the mechanism correctly and never saying where the organisation is heading",
+    "Routing a multi-system flow to .chain because its shape is a flow, so the services become invisible"
+  ]
+}

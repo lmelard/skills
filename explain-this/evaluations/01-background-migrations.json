@@ -1,0 +1,24 @@
+{
+  "skills": ["explain-this"],
+  "repo": "doctolib/doctolib",
+  "query": "Explique-moi les migrations background du monolithe : pourquoi db/migrate-background, et pourquoi le code qui en dépend attend une PR suivante.",
+  "expected_behavior": [
+    "Opens real files before writing anything: at minimum .claude/rules/db/migrations-safety.md, .claude/rules/background-migration-code-ordering.md, and at least one migration under db/migrate-background/",
+    "Asks the prerequisite question (step 4) in exactly one AskUserQuestion, multi-select, with three to five background concepts, none of which is the subject itself",
+    "States a spine sentence in its reply before building the page, phrased as a correction of what the reader believes",
+    "The page answers why it exists and when you meet it BEFORE explaining the mechanism",
+    "The page answers whether this is still the way we do it (step 5, question 7), or says plainly that nothing in the repo states a direction",
+    "The page explains how a background migration is undone, not only how it runs",
+    "scripts/audit-page.py exits 0 on the published file",
+    "No section exceeds eight body paragraphs",
+    "The page has at least as many tables as half its sections",
+    "At least one diagram shows the mechanism rather than the location of files",
+    "The reply tells the user the Artifact is private until they share it",
+    "The reply names two or three specific points it compressed and offers to expand them"
+  ],
+  "known_failure_modes": [
+    "Claiming migrations run in batches - they do not; a large backfill belongs in a rake task (migrations-safety.md)",
+    "Describing the intermediate 'half-applied' state without one real instance of it",
+    "Skipping the undo path entirely"
+  ]
+}
